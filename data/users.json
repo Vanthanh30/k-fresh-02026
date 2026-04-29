@@ -1,0 +1,22 @@
+{
+    "qa": {
+        "username": "tomsmith",
+        "password": "SuperSecretPassword!"
+    },
+    "prod": {
+        "username": "prod_user",
+        "password": "ProdSecretPassword!"
+    },
+    "uat": {
+        "username": "tomsmith",
+        "password": "SuperSecretPassword!"
+    },
+    "staging": {
+        "username": "staging_user",
+        "password": "StagingSecretPassword!"
+    },
+    "dev": {
+        "username": "dev_user",
+        "password": "DevSecretPassword!"
+    }
+}

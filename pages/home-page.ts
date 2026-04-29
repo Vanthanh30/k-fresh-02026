@@ -4,11 +4,7 @@ import { CommonPage } from './common-page';
 import { step } from '../utilities/logging';
 import { HomeLocators } from '../locators/home-locators';
 import { AssertHelper } from './assert-helper-page';
-
-/**
- * HomePage handles all interactions on the Home screen,
- * including navigation, product actions, and wishlist flows.
- */
+import { Assertions } from '../utilities/assertions';
 export class HomePage extends HomeLocators {
   commonPage: CommonPage;
   assertHelper: AssertHelper;
@@ -125,5 +121,28 @@ export class HomePage extends HomeLocators {
   async clickWishListIcon(): Promise<void> {
     await this.commonPage.waitForHidden(this.divSuccessAlert);
     await this.commonPage.click(this.iconWishList);
+  }
+  @step('Open Home page')
+  async goto(): Promise<void> {
+    await this.commonPage.goto(Constants.BASE_URL);
+  }
+  /**
+   * Opens the My Account dropdown menu.
+   */
+  @step('Open My Account dropdown')
+  async openMyAccountDropdown(): Promise<void> {
+    await this.commonPage.click(this.ddlMyAccount);
+  }
+  /**
+   * Navigates to the Login page from the Home page.
+   */
+  @step('Navigate to Login page from Home page')
+  async goToLoginPage(): Promise<void> {
+    await this.openMyAccountDropdown();
+    await this.commonPage.click(this.lnkMyAccountLogin);
+    await this.page.waitForURL(/route=account\/login/);
+    Assertions.assertTextMatch(this.page.url(),
+      /route=account\/login/,
+      'Login page');
   }
 }

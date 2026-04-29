@@ -25,8 +25,9 @@ export class HomeLocators extends CommonLocators {
     addToCart!: Locator;
     btnMyAccount!: Locator;
     lnkRegister!: Locator;
-
-    locatorInitialization(): void {
+    ddlMyAccount!: Locator;
+    lnkMyAccountLogin!: Locator;
+    locatorInitialization() {
         super.locatorInitialization();
         this.iconWishList = this.page.locator("//a[@aria-label='Wishlist']");
         this.btnWishlistInToast = this.page.locator("(//div[@id='notification-box-top']//a[contains(@href,'wishlist')])[2]");
@@ -49,6 +50,7 @@ export class HomeLocators extends CommonLocators {
             productNameLink: (name: string) => `//a[contains(text(),"${name}")]`
         };
         this.btnAddToCart = this.page.locator('button[title="Add to Cart"]');
+
         this.menuLink = (menuName: string) =>
             this.page.locator('nav').locator(`a:has-text("${menuName}")`);
         this.btnMyAccount = this.page.getByRole('button', { name: /My account/i }).first();

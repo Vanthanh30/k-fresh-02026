@@ -29,8 +29,8 @@ export class Constants {
   static readonly OUTPUT_FOLDER = '../output';
 
   static readonly ENV = process.env.ENV || 'qa';
-  static readonly BASE_URL = process.env.BASE_URL || 'https://ecommerce-playground.lambdatest.io/';
-  static readonly LOGIN_URL = `${Constants.BASE_URL}/login`;
+  static readonly BASE_URL = process.env.BASE_URL || 'https://ecommerce-playground.lambdatest.io';
+  static readonly LOGIN_URL = `${Constants.BASE_URL}/index.php?route=account/login`;
   static readonly REGISTER_URL = `${Constants.BASE_URL}/index.php?route=account/register`;
   static readonly SECURE_URL = `${Constants.BASE_URL}/secure`;
   static readonly LOGIN_USERNAME = process.env.LOGIN_USERNAME || 'tomsmith';
